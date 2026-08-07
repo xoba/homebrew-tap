@@ -1,10 +1,9 @@
 class Fb < Formula
   desc "Local file browser rendering documents, code, data, and archives as HTML"
   homepage "https://github.com/xoba/fb"
-  url "https://github.com/xoba/fb/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "73c5997eafdaae1eca4d597045521618f7257e1a4f4403b3075597e74c0da885"
+  url "https://github.com/xoba/fb/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "951dace9f7b37a9e63933706b590a13928da0b1c43d0c13bea9fe448df93a2a7"
   license "MIT"
-  revision 1
   head "https://github.com/xoba/fb.git", branch: "main"
 
   depends_on "go" => :build
@@ -28,8 +27,15 @@ class Fb < Formula
 
   def caveats
     <<~EOS
-      Serves your home directory at http://localhost:3030/ by default;
-      fb -port N (or FB_PORT) moves it, fb PATH serves a different root.
+      Serves your home directory at http://localhost:3030/ by default.
+      If that port is taken, fb uses the next free one — the log
+      (#{var}/log/fb.log) names it.
+
+      To change the port or serve root, including for the service,
+      write ~/.config/fb/config:
+        port = 8080
+        root = /some/path
+      then: brew services restart fb
     EOS
   end
 
