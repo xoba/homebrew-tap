@@ -1,8 +1,8 @@
 class Fb < Formula
   desc "Local file browser rendering documents, code, data, and archives as HTML"
   homepage "https://github.com/xoba/fb"
-  url "https://github.com/xoba/fb/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "5713743fc74fdce283ea0ce3186f6d2fed5415220cfe5b93dbc366f09ada2203"
+  url "https://github.com/xoba/fb/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "5cc8eb1d71f5af6398ec1dda055b89183eb88136da50be4e0f8ee1c75cb16e2d"
   license "MIT"
   head "https://github.com/xoba/fb.git", branch: "main"
 
@@ -11,7 +11,7 @@ class Fb < Formula
   depends_on "typstyle"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=v#{version}")
   end
 
   # With no argument fb serves the invoking user's home directory on
