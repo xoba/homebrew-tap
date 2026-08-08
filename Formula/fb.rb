@@ -1,8 +1,8 @@
 class Fb < Formula
   desc "Local file browser rendering documents, code, data, and archives as HTML"
   homepage "https://github.com/xoba/fb"
-  url "https://github.com/xoba/fb/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "4a677a4f912197a050a25105a8de9a59393da109ec8d07e15edd6495414eb0ab"
+  url "https://github.com/xoba/fb/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "82e1939bd3afd0673a1e035a8ec497f503e5770f24a4636cbd73aefc61e70784"
   license "MIT"
   head "https://github.com/xoba/fb.git", branch: "main"
 
