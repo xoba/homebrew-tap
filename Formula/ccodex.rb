@@ -1,8 +1,8 @@
 class Ccodex < Formula
   desc "Check Codex subscription usage, remaining quota, and reset times"
   homepage "https://github.com/xoba/ccodex"
-  url "https://github.com/xoba/ccodex/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "afc6f56276ab7e444d0909763a88d9c7465ddba94aa98e1bbc64705189727611"
+  url "https://github.com/xoba/ccodex/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "de87e7008f7fb494b01803e9945272b81a136ada057da04ba6547395871c1cd4"
   license "MIT"
   head "https://github.com/xoba/ccodex.git", branch: "main"
 
