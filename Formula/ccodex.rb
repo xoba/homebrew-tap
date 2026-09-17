@@ -1,12 +1,15 @@
 class Ccodex < Formula
   desc "Check Codex subscription usage, remaining quota, and reset times"
   homepage "https://github.com/xoba/ccodex"
-  url "https://github.com/xoba/ccodex/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "de87e7008f7fb494b01803e9945272b81a136ada057da04ba6547395871c1cd4"
+  url "https://github.com/xoba/ccodex/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "3c055310a160aabc526681b00f9c3ac394aff3026410e5e47787321f12333f4f"
   license "MIT"
   head "https://github.com/xoba/ccodex.git", branch: "main"
 
   depends_on "go" => :build
+
+  # ccodex records its history by running the sqlite3 command-line tool.
+  uses_from_macos "sqlite"
 
   def install
     system "go", "build", *std_go_args(
@@ -52,5 +55,11 @@ class Ccodex < Formula
     assert_equal "chatgpt", snapshot.dig("account", "type")
     assert_equal 25, snapshot.dig("rateLimits", "rateLimits", "primary", "usedPercent")
     assert_equal 1234, snapshot.dig("usage", "summary", "lifetimeTokens")
+
+    # That check must have been saved to the history through sqlite3.
+    assert_match "history.db", shell_output("#{bin}/ccodex history --path")
+    check = JSON.parse(shell_output("#{bin}/ccodex history --json").lines.fetch(0))
+    assert_equal "status", check["source"]
+    assert_equal 25, check.dig("windows", 0, "usedPercent")
   end
 end
