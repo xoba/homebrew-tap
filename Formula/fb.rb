@@ -11,6 +11,8 @@ class Fb < Formula
   depends_on "typstyle"
 
   def install
+    # The module may require a Go patch newer than Homebrew currently provides.
+    ENV["GOTOOLCHAIN"] = "go1.27.2"
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=v#{version}")
   end
 
@@ -40,6 +42,6 @@ class Fb < Formula
   end
 
   test do
-    assert_match "Usage: fb", shell_output("#{bin}/fb --help 2>&1", 2)
+    assert_match "Usage: fb", shell_output("#{bin}/fb --help 2>&1")
   end
 end
