@@ -1,8 +1,8 @@
 class Ccodex < Formula
   desc "Check Codex subscription usage, remaining quota, and reset times"
   homepage "https://github.com/xoba/ccodex"
-  url "https://github.com/xoba/ccodex/archive/refs/tags/v0.2.4.tar.gz"
-  sha256 "718fd445d4164e3ced52fd5da8b5c4258efd17b7f55d4b3b92e1805c1a0c7b4c"
+  url "https://github.com/xoba/ccodex/archive/refs/tags/v0.2.5.tar.gz"
+  sha256 "e0aee6f2e062d3960affb6b216a13cf6c9d77c530261965ea5e3f38a7204892b"
   license "MIT"
   head "https://github.com/xoba/ccodex.git", branch: "main"
 
@@ -12,6 +12,8 @@ class Ccodex < Formula
   uses_from_macos "sqlite"
 
   def install
+    # The module may require a Go patch newer than Homebrew currently provides.
+    ENV["GOTOOLCHAIN"] = "go1.27.2"
     system "go", "build", *std_go_args(
       ldflags: "-s -w -X github.com/xoba/ccodex/internal/buildinfo.Version=#{version}",
     )
