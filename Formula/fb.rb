@@ -6,6 +6,8 @@ class Fb < Formula
   license "MIT"
   head "https://github.com/xoba/fb.git", branch: "main"
 
+  deprecate! date: "2026-10-12", because: "is deprecated in favor of the standalone macOS app"
+
   depends_on "go" => :build
   depends_on "pandoc"
   depends_on "typstyle"
@@ -29,6 +31,16 @@ class Fb < Formula
 
   def caveats
     <<~EOS
+      This legacy web server is deprecated in favor of the standalone macOS app.
+      Native build and local installation instructions:
+        https://github.com/xoba/fb/blob/main/macos/README.md
+      A Homebrew cask will follow signed and notarized release verification.
+
+      To stop the legacy background service and its login launch:
+        brew services stop fb
+      To also remove the legacy command-line package:
+        brew uninstall --formula xoba/tap/fb
+
       Serves your home directory at http://localhost:3030/ by default.
       If that port is taken, fb uses the next free one — the log
       (#{var}/log/fb.log) names it.
