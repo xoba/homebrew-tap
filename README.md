@@ -19,10 +19,12 @@ earned resets require an explicit `ccodex watch --auto-reset` flag.
 ## fb — Standalone macOS app
 
 [fb](https://github.com/xoba/fb) browses local files and renders documents, code,
-data, and archives. The app embeds its renderer and Pandoc without a localhost
-server. It requires Apple Silicon and macOS 26 or later, and is signed with
-Developer ID and notarized by Apple.
-Version 0.1.1 remembers your chosen zoom level across app launches.
+email messages, spreadsheets, databases, and archives. The app embeds its
+renderer and Pandoc without a localhost server. It requires Apple Silicon and
+macOS 26 or later, and is signed with Developer ID and notarized by Apple.
+Version 0.1.2 adds `.eml` browsing with a MIME part tree, readable messages,
+attachments, and a folder inbox view. It also includes toolbar and navigation
+improvements, with zoom preferences still saved across app launches.
 
 If you installed the legacy `fb` formula, stop its background service and remove
 the old command-line package first. Fresh installations can skip these two steps.
@@ -40,7 +42,7 @@ brew install --cask xoba/tap/fb
 
 Use `--cask` to select the app: this tap also retains the deprecated `fb` formula.
 For a direct download, see the
-[macOS 0.1.1 release](https://github.com/xoba/fb/releases/tag/mac-v0.1.1).
+[macOS 0.1.2 release](https://github.com/xoba/fb/releases/tag/mac-v0.1.2).
 Build instructions are in the
 [macOS app documentation](https://github.com/xoba/fb/blob/main/macos/README.md).
 
