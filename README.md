@@ -1,6 +1,6 @@
 # homebrew-tap
 
-Homebrew formulas for [xoba](https://github.com/xoba) tools.
+Homebrew formulas and casks for [xoba](https://github.com/xoba) tools.
 
 ## ccodex — Check Codex
 
@@ -16,18 +16,29 @@ Requires the Codex CLI and a ChatGPT sign-in. See the
 [quick start](https://github.com/xoba/ccodex#quick-start) for setup. Automatic
 earned resets require an explicit `ccodex watch --auto-reset` flag.
 
-## fb — Legacy web server (deprecated)
+## fb — Standalone macOS app
+
+[fb](https://github.com/xoba/fb) browses local files and renders documents, code,
+data, and archives. The app embeds its renderer and Pandoc without a localhost
+server. It requires Apple Silicon and macOS 26 or later, and is signed with
+Developer ID and notarized by Apple.
+
+```sh
+brew install --cask xoba/tap/fb
+```
+
+Use `--cask` to select the app: this tap also retains the deprecated `fb` formula.
+For a direct download, see the
+[macOS 0.1.0 release](https://github.com/xoba/fb/releases/tag/mac-v0.1.0).
+Build instructions are in the
+[macOS app documentation](https://github.com/xoba/fb/blob/main/macos/README.md).
+
+### Migrating from the legacy web server
 
 The `fb` formula is deprecated as of October 12, 2026 in favor of the standalone
 macOS app. Existing formula installations remain usable, and installing the
 formula still works with a deprecation warning. Its source version and
 dependencies have not changed.
-
-The native app embeds its renderer and Pandoc without a localhost server. See
-the [native build and installation instructions](https://github.com/xoba/fb/blob/main/macos/README.md).
-A `fb` cask is planned after Developer ID signing, notarization, and release
-verification are complete. It is not available from this tap yet; once published,
-the explicit install command will be `brew install --cask xoba/tap/fb`.
 
 To retire an existing background server:
 
@@ -36,7 +47,7 @@ brew services stop fb
 brew uninstall --formula xoba/tap/fb  # optional: remove the old executable
 ```
 
-The cask will install the app only; it will not silently stop an existing server
+The cask installs the app only; it does not stop an existing server
 or remove the legacy formula. Users who still need the old web server can
 explicitly install it with `brew install --formula xoba/tap/fb`.
 
@@ -45,4 +56,5 @@ explicitly install it with `brew install --formula xoba/tap/fb`.
 ```sh
 brew update
 brew upgrade ccodex
+brew upgrade --cask xoba/tap/fb
 ```
