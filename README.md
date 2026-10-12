@@ -23,6 +23,16 @@ data, and archives. The app embeds its renderer and Pandoc without a localhost
 server. It requires Apple Silicon and macOS 26 or later, and is signed with
 Developer ID and notarized by Apple.
 
+If you installed the legacy `fb` formula, stop its background service and remove
+the old command-line package first. Fresh installations can skip these two steps.
+
+```sh
+brew services stop fb
+brew uninstall --formula xoba/tap/fb
+```
+
+Then install the app:
+
 ```sh
 brew install --cask xoba/tap/fb
 ```
@@ -33,23 +43,26 @@ For a direct download, see the
 Build instructions are in the
 [macOS app documentation](https://github.com/xoba/fb/blob/main/macos/README.md).
 
-### Migrating from the legacy web server
-
 The `fb` formula is deprecated as of October 12, 2026 in favor of the standalone
 macOS app. Existing formula installations remain usable, and installing the
 formula still works with a deprecation warning. Its source version and
 dependencies have not changed.
 
-To retire an existing background server:
-
-```sh
-brew services stop fb
-brew uninstall --formula xoba/tap/fb  # optional: remove the old executable
-```
-
 The cask installs the app only; it does not stop an existing server
 or remove the legacy formula. Users who still need the old web server can
 explicitly install it with `brew install --formula xoba/tap/fb`.
+
+### Open from the terminal
+
+Open a file or the current directory in the installed app:
+
+```sh
+open -b com.xoba.fb.app -- README.md
+open -b com.xoba.fb.app -- .
+```
+
+See [terminal usage](https://github.com/xoba/fb#open-from-the-terminal) for more
+examples and an optional shell shortcut.
 
 ## Updates
 

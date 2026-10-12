@@ -34,16 +34,21 @@ class Fb < Formula
   def caveats
     <<~EOS
       This legacy web server is deprecated in favor of the standalone macOS app.
-      On Apple Silicon with macOS 26 or later, install the signed and notarized app:
+      To migrate, first stop the background service and remove this formula:
+        brew services stop fb
+        brew uninstall --formula xoba/tap/fb
+      Fresh installations can skip those two steps.
+      Then install the signed and notarized app (Apple Silicon, macOS 26 or later):
         brew install --cask xoba/tap/fb
+      Installing the cask does not stop the server or remove this formula.
       Release and direct download:
         https://github.com/xoba/fb/releases/tag/mac-v0.1.0
 
-      To stop the legacy background service and its login launch:
-        brew services stop fb
-      To also remove the legacy command-line package:
-        brew uninstall --formula xoba/tap/fb
-      Installing the cask does not stop the server or remove this formula.
+      Open a file or the current directory in the installed app:
+        open -b com.xoba.fb.app -- README.md
+        open -b com.xoba.fb.app -- .
+      Terminal usage and an optional shell shortcut:
+        https://github.com/xoba/fb#open-from-the-terminal
 
       Serves your home directory at http://localhost:3030/ by default.
       If that port is taken, fb uses the next free one — the log
