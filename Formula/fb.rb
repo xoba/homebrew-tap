@@ -41,8 +41,9 @@ class Fb < Formula
       Then install the signed and notarized app (Apple Silicon, macOS 26 or later):
         brew install --cask xoba/tap/fb
       Installing the cask does not stop the server or remove this formula.
+      App version 0.1.1 remembers your chosen zoom level across launches.
       Release and direct download:
-        https://github.com/xoba/fb/releases/tag/mac-v0.1.0
+        https://github.com/xoba/fb/releases/tag/mac-v0.1.1
 
       Open a file or the current directory in the installed app:
         open -b com.xoba.fb.app -- README.md

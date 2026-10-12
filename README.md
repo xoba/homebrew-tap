@@ -22,6 +22,7 @@ earned resets require an explicit `ccodex watch --auto-reset` flag.
 data, and archives. The app embeds its renderer and Pandoc without a localhost
 server. It requires Apple Silicon and macOS 26 or later, and is signed with
 Developer ID and notarized by Apple.
+Version 0.1.1 remembers your chosen zoom level across app launches.
 
 If you installed the legacy `fb` formula, stop its background service and remove
 the old command-line package first. Fresh installations can skip these two steps.
@@ -39,7 +40,7 @@ brew install --cask xoba/tap/fb
 
 Use `--cask` to select the app: this tap also retains the deprecated `fb` formula.
 For a direct download, see the
-[macOS 0.1.0 release](https://github.com/xoba/fb/releases/tag/mac-v0.1.0).
+[macOS 0.1.1 release](https://github.com/xoba/fb/releases/tag/mac-v0.1.1).
 Build instructions are in the
 [macOS app documentation](https://github.com/xoba/fb/blob/main/macos/README.md).
 
