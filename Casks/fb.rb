@@ -1,6 +1,6 @@
 cask "fb" do
-  version "0.1.4"
-  sha256 "671bb3378c0b0629fce23684a537c0a5c8c0d8b59407effb8866111116b48ac4"
+  version "0.1.5"
+  sha256 "8e1269e961ed4ec25a7442d9ad83f379388ba52766a839ba836969eaea60f2e9"
 
   url "https://github.com/xoba/fb/releases/download/mac-v#{version}/fb-#{version}-arm64-notarized.zip"
   name "fb"
