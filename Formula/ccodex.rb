@@ -1,8 +1,8 @@
 class Ccodex < Formula
   desc "Check Codex subscription usage, remaining quota, and reset times"
   homepage "https://github.com/xoba/ccodex"
-  url "https://github.com/xoba/ccodex/archive/refs/tags/v0.2.5.tar.gz"
-  sha256 "e0aee6f2e062d3960affb6b216a13cf6c9d77c530261965ea5e3f38a7204892b"
+  url "https://github.com/xoba/ccodex/archive/refs/tags/v0.2.6.tar.gz"
+  sha256 "c08781ad416fdab8081641e9f7cdf73bb258322327e1ccd195c99b8392ded46b"
   license "MIT"
   head "https://github.com/xoba/ccodex.git", branch: "main"
 
@@ -13,7 +13,7 @@ class Ccodex < Formula
 
   def install
     # The module may require a Go patch newer than Homebrew currently provides.
-    ENV["GOTOOLCHAIN"] = "go1.27.2"
+    ENV["GOTOOLCHAIN"] = "go1.27.3"
     system "go", "build", *std_go_args(
       ldflags: "-s -w -X github.com/xoba/ccodex/internal/buildinfo.Version=#{version}",
     )
