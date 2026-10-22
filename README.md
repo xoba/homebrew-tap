@@ -22,8 +22,9 @@ earned resets require an explicit `ccodex watch --auto-reset` flag.
 email messages, spreadsheets, databases, and archives. The app embeds its
 renderer and Pandoc without a localhost server. It requires Apple Silicon and
 macOS 26 or later, and is signed with Developer ID and notarized by Apple.
-Version 0.1.6 fixes Markdown links to directories reached through absolute
-symbolic links, so those folders open correctly in the standalone app.
+Version 0.1.7 preserves numeric HTML image widths and heights in rendered
+documents and directory README previews, with preview images kept within the
+available width. Embedded HTML remains sanitized.
 
 If you installed the legacy `fb` formula, stop its background service and remove
 the old command-line package first. Fresh installations can skip these two steps.
@@ -41,7 +42,7 @@ brew install --cask xoba/tap/fb
 
 Use `--cask` to select the app: this tap also retains the deprecated `fb` formula.
 For a direct download, see the
-[macOS 0.1.6 release](https://github.com/xoba/fb/releases/tag/mac-v0.1.6).
+[macOS 0.1.7 release](https://github.com/xoba/fb/releases/tag/mac-v0.1.7).
 Build instructions are in the
 [macOS app documentation](https://github.com/xoba/fb/blob/main/macos/README.md).
 
